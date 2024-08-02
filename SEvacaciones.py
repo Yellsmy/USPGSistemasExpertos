@@ -1,6 +1,6 @@
 class SEvacaciones:
     def __init__(self):
-        # Reglas definidas como una lista de tuplas
+        # Tupla con las reglas que se han definido
         self.reglas = [
             (("Playa", "Verano", "Alto"), ["Maldivas", "Hawái"]),
             (("Playa", "Verano", "Medio"), ["Cancún", "Miami"]),
@@ -11,48 +11,69 @@ class SEvacaciones:
             (("Aventura", "Primavera", "Bajo"), ["Reserva Natural Privada Ram Tzul", "Cerro Tzankujil"])
         ]
     
+    # Método para sacar las recomendaciones de acuerdo a las preferencias del usuario
     def inferir_recomendaciones(self, hechos):
         recomendaciones = []
+
+        # Recorre cada regla en el conjunto de reglas
         for regla_hechos, destinos in self.reglas:
-            # Verificar si todos los hechos coinciden
-            if all(hecho in hechos for hecho in regla_hechos):
+          
+            todos_coinciden = True
+
+            # Recorre cada hecho en la regla y si algún hecho de la regla no se cumple
+            # la bandera se marca como False y termina el bucle
+            for hecho in regla_hechos:
+                if hecho not in hechos:
+                    todos_coinciden = False
+                    break
+
+            # Si todos los hechos coinciden con los hechos se agrega los destinos asociados
+            if todos_coinciden:
                 recomendaciones.extend(destinos)
+
         return recomendaciones
-    
+
+
+    # Método para retornar las recomendaciones inferidas
     def recomendar_destino(self, preferencia, temporada, presupuesto):
-        # Hechos conocidos
         hechos = (preferencia, temporada, presupuesto)
         
-        # Inferir recomendaciones
+        # Llama al método para inferir recomendaciones
         recomendaciones = self.inferir_recomendaciones(hechos)
-        return recomendaciones if recomendaciones else ["No hay recomendaciones disponibles"]
+        return recomendaciones
 
-# Crear una instancia del sistema experto
+
+# Se crea una instancia del sistema experto
 sistema = SEvacaciones()
 
+# Método para obtener la entrada del usuario
 def obtener_opcion(opciones):
-    for idx, opcion in enumerate(opciones, 1):
-        print(f"{idx}. {opcion}")
+
+    # Muestra las opciones de preferencias, temporadas y presupuestos
+    for i, opcion in enumerate(opciones, 1):
+        print(f"{i}. {opcion}")
+
+    # Bucle para que el usuario ingrese la opción que desee
     while True:
-        try:
-            seleccion = int(input("Ingresa el número de una opción: "))
-            if 1 <= seleccion <= len(opciones):
-                return opciones[seleccion - 1]
-            else:
-                print("Opción inválida. Intenta de nuevo.")
-        except ValueError:
-            print("Entrada inválida. Por favor ingresa un número.")
+        seleccion = input("Ingresa el número de una opción: ")
+        errores = validacionErrores(seleccion, opciones)
+        if errores is False: 
+            return opciones[int(seleccion) - 1]
 
+
+# Método para controlar errores
 def validacionErrores(seleccion, opciones):
-    if not seleccion.isnumeric():
+    if not seleccion.isdigit():
         print("Error!! debe ingresar el número de la opción de su elección")
-        return False
-    elif int(seleccion) > len(opciones) or int(seleccion) < 1:
+        return True
+    seleccion = int(seleccion)
+    if seleccion < 1 or seleccion > len(opciones):
         print("Error!! la opción seleccionada es inválida")
-        return False
-    return True
+        return True
+    return False
 
-# Ejemplo de uso
+
+# Main
 def main():
     preferencias = ["Playa", "Montaña", "Aventura"]
     temporadas = ["Verano", "Invierno", "Primavera", "Otoño"]
