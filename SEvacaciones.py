@@ -113,6 +113,7 @@ def main():
 
     print("\n")
     print("***************** | DISFRUTA TU VIAJE | *****************")
+    print("\n")
 
 if __name__ == "__main__":
     main()
