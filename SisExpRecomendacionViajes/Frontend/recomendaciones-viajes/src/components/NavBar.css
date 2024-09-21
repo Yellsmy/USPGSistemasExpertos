@@ -1,0 +1,39 @@
+/* src/components/NavBar.css */
+
+.navbar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar ul li {
+    display: inline;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+  
+  .navbar ul li a .star {
+    font-size: 20px;
+    color: #ffbf00; /* Estrella amarilla */
+  }
+  
+  .navbar ul li a .menu-icon {
+    font-size: 22px;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ff4500; /* Cambia el color cuando se pasa el mouse */
+  }
+  

@@ -1,0 +1,85 @@
+/* src/components/RecomendacionesGenerales.css */
+/* src/components/RecomendacionesGenerales.css */
+
+/* Estilos para la primera subsección: Selectores */
+.selectors {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0;
+
+    margin-bottom: 40px;
+    
+    
+  }
+  
+  .selectors select,
+  .selectors input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 180px;
+  }
+
+  /* Contenedor principal para las secciones 2 y 3 */
+.recommendations-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 20px;
+  }
+  
+ /* Sección de Mapa */
+.map-section {
+    flex: 1;
+    text-align: center;
+    background-image: url('../assets/map-placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tarjeta de Recomendaciones */
+  .recommendation-card-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .recommendation-card-general {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 15px;
+  }
+  
+  .recommendation-card-general h3,
+  .recommendation-card-general p {
+    color: #333;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .recommendation-card-general img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .next-button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
