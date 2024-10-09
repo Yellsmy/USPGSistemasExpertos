@@ -6,7 +6,6 @@ class Pais(db.Model):
     
     id_pais = db.Column(db.Integer, primary_key=True)
     pais = db.Column(db.String(100), nullable=False)
-
     regiones = db.relationship('Region', backref='pais', lazy=True)
 
 # Modelo para las regiones
@@ -31,7 +30,6 @@ class Pronostico(db.Model):
     id_pronostico = db.Column(db.Integer, primary_key=True)
     id_temporada = db.Column(db.Integer, db.ForeignKey('temporadas.id_temporada'), nullable=False)
     id_pais = db.Column(db.Integer, db.ForeignKey('paises.id_pais'), nullable=False)
-    id_region = db.Column(db.Integer, db.ForeignKey('regiones.id_region'), nullable=True)
     mes_inicio = db.Column(db.String(50), nullable=False)
     mes_fin = db.Column(db.String(50), nullable=False)
 
@@ -39,7 +37,7 @@ class Pronostico(db.Model):
     
     pais = db.relationship('Pais', backref='pronosticos', lazy=True)
     
-    region = db.relationship('Region', backref='pronosticos', lazy=True)
+    
 
 # Modelo para el clima
 class Clima(db.Model):
@@ -53,5 +51,7 @@ class Clima(db.Model):
     humedad = db.Column(db.Integer, nullable=False)
     velocidad_viento = db.Column(db.Float, nullable=False)
     dia = db.Column(db.Integer, nullable=False)
+    id_region = db.Column(db.Integer, db.ForeignKey('regiones.id_region'), nullable=True)
 
     temporada = db.relationship('Temporada', backref='climas', lazy=True)
+    region = db.relationship('Region', backref='pronosticos', lazy=True)

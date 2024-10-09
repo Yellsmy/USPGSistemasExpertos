@@ -1,30 +1,56 @@
-// src/components/RecomendacionesGenerales.js
 import React, { useState } from 'react';
-import './RecomendacionesGenerales.css'; // Archivo CSS específico para esta pantalla
+import './RecomendacionesGenerales.css';
 import '../App.css';
 import NavBar from './NavBar';
+import MapSection from './Mapa';
+import { obtenerRecomendacionesGenerales } from '../services/recomendacionesService';
 
 const RecomendacionesGenerales = () => {
-  // Estado para las recomendaciones (simulado por ahora)
+  const [preferencia, setPreferencia] = useState('');
+  const [presupuesto, setPresupuesto] = useState('');
+  const [temporada, setTemporada] = useState('');
+  const [fechaViaje, setFechaViaje] = useState('');
+  const [latitud, setLatitud] = useState(null);
+  const [longitud, setLongitud] = useState(null);
+  const [pais, setPais] = useState('');
+  const [recomendaciones, setRecomendaciones] = useState([]);
   const [currentRecommendation, setCurrentRecommendation] = useState(0);
-  const recommendations = [
-    {
-      place: "Puerto San José",
-      country: "Guatemala",
-      maxTemp: "39°",
-      minTemp: "20°",
-      image: "../assets/puerto-sanjose.jpg"
-    },
-    // Aquí podrían agregarse más recomendaciones simuladas
-  ];
 
-  const handleNextRecommendation = () => {
-    setCurrentRecommendation((prev) => (prev + 1) % recommendations.length);
+  // Función para buscar recomendaciones
+  const buscarRecomendaciones = async () => {
+    if (!latitud || !longitud || !pais) {
+      alert("Por favor, selecciona tu ubicación en el mapa.");
+      return;
+    }
+
+    const recomendacionesObtenidas = await obtenerRecomendacionesGenerales(
+      preferencia, 
+      presupuesto, 
+      temporada, 
+      latitud, 
+      longitud, 
+      pais, 
+      fechaViaje
+    );
+    
+    setRecomendaciones(recomendacionesObtenidas);
+    setCurrentRecommendation(0);
   };
+
+  // Funciones para navegar entre las recomendaciones
+  const handleNextRecommendation = () => {
+    setCurrentRecommendation((prev) => (prev + 1) % recomendaciones.length);
+  };
+
+  const handlePreviousRecommendation = () => {
+    setCurrentRecommendation((prev) => (prev - 1 + recomendaciones.length) % recomendaciones.length);
+  };
+
+  const currentRec = recomendaciones[currentRecommendation];
 
   return (
     <div>
-      {/* Sección 1: Encabezado con fondo de imagen */}
+      {/* Sección 1: Encabezado */}
       <div className="main-page">
         <NavBar />
         <div className="content">
@@ -32,61 +58,70 @@ const RecomendacionesGenerales = () => {
           <p>
           Buscar recomendaciones de viajes nunca había sido tan fácil. Ingresa las actividades de tu preferencia,
           el nivel de tu presupuesto destinado para este viaje, la temporada de tu interés, selecciona tu ubicación actual
-          y la fecha en la que deseas viajar. Así de fácil obtendrás las mejores recomendaciones para el viaje de tus sueños
+          y la fecha en la que deseas viajar. Así de fácil obtendrás las mejores recomendaciones para el viaje de tus sueños.
           </p>
         </div>
       </div>
-        <div className="recommendations-page">
-          {/* Primera Sub-Sección */}
-          <div className="selectors">
-            <select>
-              <option value="">Preferencia</option>
-              <option value="playa">Playa</option>
-              <option value="escalar">Escalar</option>
-              <option value="naturaleza">Naturaleza</option>
-              <option value="aventura">Aventura</option>
-            </select>
+      {/* Sección 2: Consultas */}
+      <div className="recommendations-page">
+        {/* Primera Sub-Sección: Opciones que el usuario debe seleccionar */}
+        <div className="selectors">
+          <select value={preferencia} onChange={(e) => setPreferencia(e.target.value)}>
+            <option value="">Preferencia</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Playa">Playa</option>
+            <option value="Escalada">Escalada</option>
+            <option value="Naturaleza">Naturaleza</option>
+          </select>
 
-            <select>
-              <option value="">Presupuesto</option>
-              <option value="alto">Alto</option>
-              <option value="medio">Medio</option>
-              <option value="bajo">Bajo</option>
-            </select>
+          <select value={presupuesto} onChange={(e) => setPresupuesto(e.target.value)}>
+            <option value="">Presupuesto</option>
+            <option value="Alto">Alto</option>
+            <option value="Medio">Medio</option>
+            <option value="Bajo">Bajo</option>
+          </select>
 
-            <select>
-              <option value="">Temporada</option>
-              <option value="verano">Verano</option>
-              <option value="invierno">Invierno</option>
-              <option value="primavera">Primavera</option>
-              <option value="otoño">Otoño</option>
-            </select>
+          <select value={temporada} onChange={(e) => setTemporada(e.target.value)}>
+            <option value="">Temporada</option>
+            <option value="Verano">Verano</option>
+            <option value="Invierno">Invierno</option>
+            <option value="Primavera">Primavera</option>
+            <option value="Otoño">Otoño</option>
+          </select>
+          <input type="date" value={fechaViaje} onChange={(e) => setFechaViaje(e.target.value)} />
+          <button onClick={buscarRecomendaciones}>Buscar Recomendaciones</button>
+        </div>
 
-            <input type="date" />
-          </div>
-
-          {/* Cuerpo de la página */}
+        {/* Segunda Sub-Sección: Mapa */}
         <div className="recommendations-body">
-          {/* Mapa */}
           <div className="map-section">
-            <h3>Selecciona tu ubicación</h3>
+            <MapSection setLatitud={setLatitud} setLongitud={setLongitud} setPais={setPais} />
           </div>
 
-          {/* Tarjeta de Recomendaciones */}
-          <div className="recommendation-card-section">
-            <div className="recommendation-card-general">
-              <img src={recommendations[currentRecommendation].image} alt={recommendations[currentRecommendation].place} />
-              <h3>{recommendations[currentRecommendation].place}</h3>
-              <p>{recommendations[currentRecommendation].country}</p>
-              <p>Temperatura máxima: {recommendations[currentRecommendation].maxTemp}</p>
-              <p>Temperatura mínima: {recommendations[currentRecommendation].minTemp}</p>
+          {/* Tercera Sub-Sección: Tarjetas con recomendaciones */}
+          {recomendaciones.length > 0 ? (
+            <div className="recommendation-card-container">
+              <button onClick={handlePreviousRecommendation} className="arrow-button">←</button>
+              <div className="recommendation-card-general">
+                <h3>{currentRec.destino}</h3>
+                <p>{currentRec.clima}</p>
+                <p>Temperatura máxima: {currentRec.temperatura_max}</p>
+                <p>Temperatura mínima: {currentRec.temperatura_min}</p>
+                 {console.log(currentRec.imagen)}
+                <img src={`http://127.0.0.1:5000${currentRec.imagen_url}`} alt={currentRec.destino} style={{ width: '100%', height: 'auto' }} />
+                {currentRec.temporada !== temporada && (
+                  <p className="warning-message">Por la temporada no se recomienda este destino.</p>
+                )}
+              </div>
+              <button onClick={handleNextRecommendation} className="arrow-button">→</button>
             </div>
-            <button onClick={handleNextRecommendation} className="next-button">→</button>
-          </div>
+          ) : (
+            <p>No hay recomendaciones disponibles</p>
+          )}
         </div>
       </div>
     </div>
   );
-};
+  };
 
 export default RecomendacionesGenerales;

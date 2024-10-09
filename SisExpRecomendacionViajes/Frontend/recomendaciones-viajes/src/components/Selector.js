@@ -1,4 +1,3 @@
-// src/components/Selector.js
 import React from 'react';
 
 const Selector = ({ label, type = 'select' }) => {

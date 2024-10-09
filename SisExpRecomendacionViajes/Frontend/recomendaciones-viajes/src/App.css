@@ -1,18 +1,15 @@
-/* src/App.css */
-
-/* Sección 1: Encabezado con fondo de imagen */
+/* Estilos para la sección 1: Encabezado con fondo de imagen */
 .main-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 75vh;
   padding-left: 50px;
-  background-image: url('./assets/background.jpeg');  /* Ruta para la imagen de fondo */
+  background-image: url('./assets/background.jpg');
   background-size: cover;
   background-position: center;
   color: #333;
 }
-
 
 .main-page button {
   background-color: #faf5f3;
@@ -22,7 +19,7 @@
   font-size: 18px;
   color: #4e4d4d;
   cursor: pointer;
-  border-radius: 30px;  /* Aumenta el valor para hacerlo más redondo */
+  border-radius: 30px;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -36,7 +33,7 @@
   color: #333;
 }
 
-/* Sección 2: Recomendaciones con fondo blanco */
+/* Estilos para la sección 2 */
 .recommendation-section {
   background-color: white;
   padding: 50px 20px;
@@ -49,7 +46,7 @@
   color: #333;
 }
 
-/* Distribución de las tarjetas */
+/* Estilos de las tarjetas */
 .recommendation-cards {
   display: flex;
   justify-content: center;
@@ -88,14 +85,25 @@
   line-height: 1.5;
 }
 
-/* src/App.css */
 
-/* Imagen de fondo para las tarjetas de recomendación */
+.recommendation-card {
+  width: 300px;
+  padding: 120px 20px 20px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+
+
+/* Personalización de las tarejtas */
 .recommendation-card.general {
   background-image: url('./assets/general-icon.png');
   background-repeat: no-repeat;
   background-position: center 30px;
-  background-size: 80px 80px; /* Ajusta el tamaño de la imagen */
+  background-size: 80px 80px;
 }
 
 .recommendation-card.personalized {
@@ -105,22 +113,10 @@
   background-size: 80px 80px;
 }
 
-/* Ajustamos la imagen de fondo para que quede más centrada y no toque el borde superior */
 .recommendation-card.general,
 .recommendation-card.personalized {
-  background-position: 20px top 20px; /* Espacio desde el borde superior */
-  background-size: 80px 80px; /* Tamaño de la imagen */
-  padding: 120px 20px 20px 20px; /* Aumentamos el padding-top */
-}
-
-/* Ajustamos el estilo de las tarjetas en general */
-.recommendation-card {
-  width: 300px;
-  padding: 120px 20px 20px 20px;  /* Más espacio arriba para la imagen */
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
+  background-position: 20px top 20px;
+  background-size: 80px 80px;
+  padding: 120px 20px 20px 20px;
 }
 

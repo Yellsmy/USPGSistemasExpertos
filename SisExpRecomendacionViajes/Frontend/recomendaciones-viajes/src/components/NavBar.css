@@ -1,5 +1,4 @@
-/* src/components/NavBar.css */
-
+/* Estilos para la barra de navegación */
 .navbar {
     position: absolute;
     top: 20px;
@@ -26,7 +25,7 @@
   
   .navbar ul li a .star {
     font-size: 20px;
-    color: #ffbf00; /* Estrella amarilla */
+    color: #ffbf00;
   }
   
   .navbar ul li a .menu-icon {
@@ -34,6 +33,6 @@
   }
   
   .navbar ul li a:hover {
-    color: #ff4500; /* Cambia el color cuando se pasa el mouse */
+    color: #6e6a68;
   }
   
