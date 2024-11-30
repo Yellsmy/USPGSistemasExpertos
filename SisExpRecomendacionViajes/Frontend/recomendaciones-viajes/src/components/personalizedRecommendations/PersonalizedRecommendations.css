@@ -1,0 +1,257 @@
+/* Estilo general para toda la página */
+.personalized-recommendations-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Sección 1: Encabezado */
+/* Estilos para el encabezado de Recomendaciones Personalizadas */
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  padding: 20px;
+  background-image: url('../../assets/background.jpg'); /* Ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #333;
+  text-align: center;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ffffff; /* Texto blanco para destacar sobre la imagen */
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejorar legibilidad */
+}
+
+.header p {
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 700px;
+  color: #f3f3f3; /* Color claro para destacar sobre el fondo */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para el texto */
+}
+
+  
+  /* Estilos para la sección de criterios de búsqueda */
+.section-3-2 {
+  flex: 1;
+  background-color: #f4f4f4;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  min-height: 400px; /* Altura mayor para que se vea más espaciosa */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-3-2 h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.section-3-2 .criteria-group {
+  display: flex;
+  flex-direction: column; /* Cambiar a columna para alinear uno debajo del otro */
+  gap: 20px; /* Espaciado entre los campos */
+  align-items: center; /* Centrar horizontalmente */
+}
+
+.section-3-2 select,
+.section-3-2 input {
+  width: 80%; /* Hacer los campos más anchos */
+  max-width: 350px; /* Ancho máximo */
+  padding: 12px;
+  border-radius: 25px; /* Bordes redondeados */
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.section-3-2 select:focus,
+.section-3-2 input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+.section-3-2 button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 50px; /* Botón más grande */
+  border: none;
+  border-radius: 25px; /* Bordes redondeados */
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-3-2 button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.section-3-2 button:active {
+  background-color: #003d80;
+  transform: translateY(1px);
+}
+
+/* Mensaje de error */
+.section-3-2 .error-message {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+  
+  /* Sección 3.1: Mapa */
+  .section-3-1 {
+    flex: 1;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-3-1 h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  
+  /* Sección 4: Itinerario */
+  .section-4 {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 5%;
+  }
+  
+  .section-4 h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .timeline {
+    margin-bottom: 20px;
+  }
+  
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-left: 2px solid #007bff;
+    margin-left: 20px;
+  }
+  
+  .timeline-item p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .accommodation-food {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    flex: 1;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 0 10px;
+  }
+  
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .total-cost {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .personalized-recommendations-page {
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .section-2,
+  .section-3-1,
+  .section-3-2,
+  .section-3-3,
+  .section-4 {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .featured-recommendation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .itinerary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .accommodation-food {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  

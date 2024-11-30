@@ -1,0 +1,24 @@
+
+.precios-content {
+    padding: 20px;
+    background-color: #ecf4ff;
+    color: #2c3e50;
+    width: 80%;
+    margin: auto;
+}
+
+.precios-content h1 {
+    color: #333;
+}
+
+.precios-content table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.precios-content th, .precios-content td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}

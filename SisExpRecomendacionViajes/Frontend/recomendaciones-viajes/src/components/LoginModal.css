@@ -1,0 +1,92 @@
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: white;
+    border-radius: 25px; /* Bordes más redondeados */
+    width: 400px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-section h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .welcome-section p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre campos */
+  }
+  
+  form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Bordes redondeados consistentes */
+    font-size: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Coloca los botones uno al lado del otro */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 25px; /* Más espacio entre los campos y los botones */
+  }
+  
+  .login-button,
+  .close-button {
+    background-color: #00bfff; /* Color celeste para ambos botones */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px; /* Bordes completamente redondeados */
+    cursor: pointer;
+    font-size: 16px;
+    width: 48%; /* Ajusta el ancho para que ocupen el mismo espacio */
+    transition: background-color 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background-color: #ff4d4d; /* Cambia a rojo al pasar el puntero */
+  }
+  
+  .login-button:hover {
+    background-color: #0099cc; /* Un tono más oscuro de celeste */
+  }
+  

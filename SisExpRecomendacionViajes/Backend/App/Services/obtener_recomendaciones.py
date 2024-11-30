@@ -9,7 +9,7 @@ from flask import current_app
 DISTANCIA_MINIMA_MEDIO = 100  # Distancia mínima para un presupuesto medio (km)
 DISTANCIA_MAXIMA_BAJO = 99.9  # Distancia máxima para un presupuesto bajo (km)
 
-def inferir_recomendaciones(preferencia, temporada, presupuesto, latitud_usuario, longitud_usuario, paisIngreso, fecha_viaje):
+def inferir_recomendaciones(preferencia, temporada, presupuesto, latitud_usuario, longitud_usuario, paisIngreso, fecha_viaje, tipoRecomendacion):
 
     #print(f"Preferencia: {preferencia}, Temporada: {temporada}, Presupuesto: {presupuesto}")
     #print(f"Latitud Usuario: {latitud_usuario}, Longitud Usuario: {longitud_usuario}")
@@ -60,28 +60,38 @@ def inferir_recomendaciones(preferencia, temporada, presupuesto, latitud_usuario
 
     destinos = []
     for recomendacion in recomendaciones:
-        # Consultar el clima para el destino en la fecha de viaje
-        clima = obtener_clima_simulado(recomendacion.id_pais, fecha_viaje)
-
-        if not clima:
-            print(f"No se encontró clima para el destino: {recomendacion.destino}")
-            continue
 
         # Construir la URL de la imagen
         image_url = f"{recomendacion.imagen}"
+
         
-        # Agregar la recomendación con el clima y la temporada
-        destinos.append({
-            "destino": recomendacion.destino,
-            "clima": clima['clima'],
-            "temperatura_min": clima['temperatura_min'],
-            "temperatura_max": clima['temperatura_max'],
-            "humedad": clima['humedad'],
-            "velocidad_viento": clima['velocidad_viento'],
-            "temporada": clima['temporada'],
-            "imagen_url": image_url
-        })
-    #print(f"Destinos generados: {len(destinos)}")
+        if tipoRecomendacion == "personalizada":
+            destinos.append({
+                "destino": recomendacion.destino,
+                "imagen_url": image_url
+            })
+        else:
+            # Consultar el clima para el destino en la fecha de viaje
+            clima = obtener_clima_simulado(recomendacion.id_pais, fecha_viaje)
+
+            if not clima:
+                print(f"No se encontró clima para el destino: {recomendacion.destino}")
+                continue
+
+            
+            
+            # Agregar la recomendación con el clima y la temporada
+            destinos.append({
+                "destino": recomendacion.destino,
+                "clima": clima['clima'],
+                "temperatura_min": clima['temperatura_min'],
+                "temperatura_max": clima['temperatura_max'],
+                "humedad": clima['humedad'],
+                "velocidad_viento": clima['velocidad_viento'],
+                "temporada": clima['temporada'],
+                "imagen_url": image_url
+            })
+        #print(f"Destinos generados: {len(destinos)}")
 
     return destinos
 

@@ -1,0 +1,114 @@
+/* Estilos para la barra lateral */
+.sidebar-login {
+    background-color: #243447;
+    color: white;
+    padding: 20px;
+    width: 650px; /* Ajusta el ancho de la barra lateral */
+}
+
+.sidebar-login a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.sidebar-login a:hover {
+    background-color: #1A2F41;
+}
+
+
+/* Estilos Generales del Contenedor */
+.login-container {
+    background-color: #ffffff;
+    width: 350px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 50px auto;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilización de los Inputs */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* 100% width - padding */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilización del Botón de Ingresar */
+button[type="submit"] {
+    background-color: #007BFF; /* Bootstrap primary blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Estilización del mensaje de contraseña olvidada */
+.login-container p {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.login-container p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/*Estilo para el logo*/
+.image-container {
+    display: flex;       /* Activa Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 510px;       /* Altura del contenedor */
+}
+
+.image-container img {
+    max-width: 100%;    /* Asegura que la imagen no exceda el ancho del contenedor */
+    max-height: 100%;   /* Asegura que la imagen no exceda la altura del contenedor */
+}
+
+
+h2 {
+    margin: 10px 0; /* Añade un margen de 10 pixels arriba y abajo */
+    padding: 5px; /* Añade un relleno de 5 pixels alrededor del texto */
+    font-weight: bold; /* Hace que el texto sea negrita */
+    font-family: Arial, sans-serif; /* Cambia la fuente a Arial o una fuente similar */
+    color: #fffcfc; /* Cambia el color del texto a negro */
+    font-size: 20px; /* Cambia el tamaño de la fuente a 24 pixels */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+h3 {
+    margin: 10px 0; /* Añade un margen de 10 pixels arriba y abajo */
+    padding: 5px; /* Añade un relleno de 5 pixels alrededor del texto */
+    font-weight: bold; /* Hace que el texto sea negrita */
+    font-family: Arial, sans-serif; /* Cambia la fuente a Arial o una fuente similar */
+    color: #fffcfc; /* Cambia el color del texto a negro */
+    font-size: 12px; /* Cambia el tamaño de la fuente a 24 pixels */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/*Mensaje de error*/
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

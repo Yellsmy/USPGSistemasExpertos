@@ -1,0 +1,35 @@
+.highlighted-recommendation {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .recommendation-card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .recommendation-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .recommendation-card button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .recommendation-card button:hover {
+    background-color: #45a049;
+  }
+  

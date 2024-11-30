@@ -1,0 +1,163 @@
+/* Ajustes generales para la sección de búsqueda */
+.search-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px 5%;
+}
+
+/* Estilos para la sección de criterios */
+.criteria-section {
+  flex: 1;
+  background-color: #f4f4f4;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.criteria-section h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Campos de entrada */
+.criteria-section select,
+.criteria-section input {
+  width: 90%; /* Ocupan el 90% del contenedor */
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  margin-bottom: 20px; /* Espaciado entre campos */
+  background-color: #ffffff;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.criteria-section select:focus,
+.criteria-section input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Botón de búsqueda */
+.criteria-section button {
+  width: 50%; /* Tamaño ajustado al contenedor */
+  max-width: 200px;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.criteria-section button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.criteria-section button:active {
+  background-color: #003d80;
+  transform: translateY(1px);
+}
+
+/* Sección de recomendaciones */
+.recommendations-section {
+  flex: 1;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.recommendations-section h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Ajustar la card de recomendaciones */
+.recommendation-card {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  max-width: 500px; /* Ampliar el ancho máximo */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.recommendation-card:hover {
+  transform: scale(1.05);
+}
+
+/* Ajustar la imagen */
+.recommendation-card img {
+  width: 100%; /* Hacer que ocupe todo el ancho disponible */
+  max-width: 450px; /* Tamaño máximo */
+  height: auto; /* Mantener la proporción original */
+  border-radius: 10px;
+  margin-bottom: 15px;
+  object-fit: cover; /* Asegurar que la imagen se ajuste bien */
+}
+
+/* Ajustar interlineado y espaciado */
+.recommendation-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1.4; /* Ajustar interlineado */
+}
+
+.recommendation-card p {
+  font-size: 16px;
+  margin-bottom: 10px; /* Ajustar espaciado entre párrafos */
+  line-height: 1.5; /* Ajustar interlineado */
+}
+
+/* Botón */
+.recommendation-card button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.recommendation-card button:hover {
+  background-color: #0056b3;
+}
+
+/* Botones de navegación */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.navigation-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Hacer botones redondos */
+  padding: 15px;
+  cursor: pointer;  
+}
+
+.navigation-buttons button:hover {
+  background-color: #0056b3;
+}
